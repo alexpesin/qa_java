@@ -1,6 +1,7 @@
 package com.example;
 
 import org.junit.Test;
+import org.mockito.Mock;
 
 import java.util.List;
 
@@ -8,9 +9,12 @@ import static org.junit.Assert.*;
 
 public class CatTest {
 
+    @Mock
+    private Feline feline;
+
     @Test
     public void getSoundTest() {
-        Feline feline = new Feline();
+        feline = new Feline();
         Cat cat = new Cat(feline);
         String expected = "Мяу";
         String actual = cat.getSound();
@@ -20,7 +24,7 @@ public class CatTest {
 
     @Test
     public void getFoodTest() throws Exception {
-        Feline feline = new Feline();
+        feline = new Feline();
         Cat cat = new Cat(feline);
         List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
         List<String> actualList = cat.getFood();
