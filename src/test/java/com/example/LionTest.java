@@ -59,9 +59,10 @@ public class LionTest {
 
    @Test
     public void getFoodTest() throws Exception {
-       feline = Mockito.spy(Feline.class);
+
        Lion lion = new Lion("Самка", feline);
        List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
+       Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
        List<String> actualList = lion.getFood();
 
        assertEquals(expectedList, actualList);
